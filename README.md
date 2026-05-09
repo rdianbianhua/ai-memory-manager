@@ -307,23 +307,3 @@ If `OPENAI_API_KEY` is configured, memory content sent for embedding may be sent
 
 Do not store secrets, private keys, access tokens, passwords, or unredacted credentials as memories.
 
-## 开源注意事项 / Open Source Notes
-
-发布前不要提交生成的运行时或构建文件 / Before publishing, do not commit generated runtime/build files:
-
-- `.ai-memory/`
-- `node_modules/`
-- `dist/`
-- `dist-gui/`
-- `.playwright-mcp/`
-- `*.db`
-- `.env`
-
-这些文件已被 `.gitignore` 覆盖。
-
-These are already covered by `.gitignore`.
-
-已知审计提示：当前 Vite 5 开发依赖可能报告 moderate 级 dev-server advisory，完全消除需要 Vite 的 semver-major 升级。不要把 Vite dev server 暴露到公网。
-
-Known audit note: current Vite 5 development dependencies may report moderate dev-server advisories that require a semver-major Vite upgrade to fully remove. Do not expose the Vite dev server publicly.
-
