@@ -12,6 +12,7 @@ import { buildHandoffQuality } from '../core/handoff.profile.js';
 import { logger } from '../utils/logger.js';
 
 // Token and project config from environment - 必须同时提供
+process.env.AI_MEMORY_STDIO = '1';
 const MCP_TOKEN = process.env.MCP_TOKEN;
 const MCP_PROJECT_PATH = process.env.MCP_PROJECT_PATH;
 

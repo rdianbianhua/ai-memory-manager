@@ -2,11 +2,12 @@ import initSqlJs, { Database as SqlJsDatabase } from 'sql.js';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { existsSync, mkdirSync, readFileSync, writeFileSync, statSync } from 'fs';
+import { getAppDataDir } from '../utils/paths.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const DEFAULT_DB_PATH = join(process.cwd(), '.ai-memory', 'data', 'memories.db');
+const DEFAULT_DB_PATH = join(getAppDataDir(), 'data', 'memories.db');
 
 let dbInstance: SqlJsDatabase | null = null;
 let dbPath: string = DEFAULT_DB_PATH;
@@ -482,7 +483,7 @@ export { updateLastDbFileMtime };
 
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
-let logger = { info: console.log, error: console.error, warn: console.warn };
+let logger = { info: console.error, error: console.error, warn: console.warn };
 export function setLogger(customLogger: typeof logger) {
   logger = customLogger;
 }

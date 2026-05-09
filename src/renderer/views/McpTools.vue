@@ -256,6 +256,9 @@ const mcpConfig = computed(() => ({
     'ai-memory': {
       command: 'node',
       args: [runtimeStatus.value?.mcp.serverPath || 'dist/mcp/index.js'],
+      cwd: runtimeStatus.value?.mcp.serverPath
+        ? runtimeStatus.value.mcp.serverPath.replace(/[\\/]dist[\\/]mcp[\\/]index\.js$/, '')
+        : undefined,
       env: {
         MCP_TOKEN: '你的Token',
         MCP_PROJECT_PATH: '你的项目路径'

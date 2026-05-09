@@ -1,11 +1,9 @@
 import { readFileSync, existsSync, writeFileSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
 import YAML from 'yaml';
+import { getAppDataDir } from './paths.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const APP_DATA_DIR = join(process.cwd(), '.ai-memory');
+const APP_DATA_DIR = getAppDataDir();
 
 export interface Config {
   database: {

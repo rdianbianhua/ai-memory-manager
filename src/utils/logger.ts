@@ -18,7 +18,10 @@ function log(level: LogLevel, message: string, ...args: unknown[]): void {
     return;
   }
   const prefix = `[${formatTimestamp()}] [${level.toUpperCase()}]`;
-  console.log(prefix, message, ...args);
+  const writer = level === 'error' || level === 'warn' || process.env.AI_MEMORY_STDIO === '1'
+    ? console.error
+    : console.log;
+  writer(prefix, message, ...args);
 }
 
 export const logger = {

@@ -8,6 +8,7 @@ import { getMemoryService } from '../core/memory.service.js';
 import { getSearchService } from '../core/search.js';
 import { runMcpSelfTest } from '../core/mcp.self-test.js';
 import { getConfig } from '../utils/config.js';
+import { getProjectRoot } from '../utils/paths.js';
 import { v4 as uuidv4 } from 'uuid';
 import type {
   BrainOverview,
@@ -1567,10 +1568,7 @@ function maskLocalPath(value: string): string {
 }
 
 function resolveMcpServerPath(): string {
-  const distPath = fileURLToPath(new URL('../mcp/index.js', import.meta.url));
-  if (existsSync(distPath)) return distPath;
-  const devPath = path.join(process.cwd(), 'src', 'mcp', 'index.ts');
-  return existsSync(devPath) ? devPath : distPath;
+  return path.join(getProjectRoot(), 'dist', 'mcp', 'index.js');
 }
 
 function isGlobalMemoryType(value: unknown): value is GlobalMemoryType {
