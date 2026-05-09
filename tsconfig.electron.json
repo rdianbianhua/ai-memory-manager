@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022"],
+    "outDir": "./dist-electron",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": false,
+    "sourceMap": true,
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+  },
+  "include": ["src/main/**/*", "src/preload/**/*", "src/shared/**/*", "src/types/**/*", "src/core/**/*", "src/db/**/*", "src/utils/**/*"],
+  "exclude": ["node_modules", "dist", "src/renderer", "src/cli", "src/mcp"]
+}

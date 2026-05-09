@@ -1,0 +1,17 @@
+node_modules/
+dist/
+dist-gui/
+.env
+.env.*
+!.env.example
+.ai-memory/
+.playwright-mcp/
+.claude/
+coverage/
+*.log
+*.tmp
+*.png
+!docs/screenshots/*.png
+*.db
+*.sqlite
+*.sqlite3
